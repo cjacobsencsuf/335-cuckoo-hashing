@@ -3,6 +3,4 @@ Fall 2019 Cuckoo hashing
 
 Group members:
 
-Ada Lovelace adalovelace@csu.fullerton.edu
-
-Charles Babbage charlesbab@csu.fullerton.edu
+Carla Jacobsen cjacobsen2016@csu.fullerton.edu
