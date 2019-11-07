@@ -107,10 +107,22 @@ bool place_in_hash_tables (string s) {
       cout << endl;
       // YOU NEED TO WRITE THE CODE TO STORE IN temp THE STRING STORED AT
       // t[pos][index] AND STORE IN t[pos][index] THE STRING temp_s
+      temp = t[pos][index];
+	    t[pos][index] = temp_s;
       // NOW temp_s CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
       // IN THE OTHER TABLE
       // WRITE THE CODE TO SET index TO INDICATE THE OTHER TABLE
+       //change tables
+	    if(index == 0)
+		    {
+		    index = 1;
+		    }
+	    else
+		    {
+		    index = 0;
+		    }
       // WRITE THE CODE TO CALCULATE IN pos THE HASH VALUE FOR temp_s
+      pos = f(temp_s, index);
       counter ++;
     }
   }
