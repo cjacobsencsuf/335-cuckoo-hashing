@@ -1,5 +1,5 @@
 // Assignment 3: Cuckoo Hashing algorithm
-// Doina Bein
+// Carla Jacobsen CPSC 335 Fall 2019 2:30-3:45pm Doina Bein
 // An open addressing method called Cuckoo Hashing
 // INPUT: an input file containing strings of maximum 255 characters, 
 // one string per line
@@ -88,7 +88,7 @@ bool place_in_hash_tables (string s) {
 
   pos = f(temp_s, index);
 
-  while((!placed ) && (counter < 2*tablesize)) {
+  while((!placed ) && (counter < 2*tablesize)) {//while
     if (t[pos][index] == "") {
       cout << "String <" << temp_s << "> will be placed at";
       cout  << " t[" << pos <<"][" << index << "]" << endl;
@@ -96,7 +96,7 @@ bool place_in_hash_tables (string s) {
       placed = true;
       return placed;
     }
-    else {
+    else {//else
       // The entry at index <pos> in the <index> hash table is occupied so
       // it needs to be evicted and replaced by <temp_s>.
       // Store in <temp> the entry t[pos][index] and place instead
@@ -105,33 +105,34 @@ bool place_in_hash_tables (string s) {
       cout << "String <" << temp_s << "> will be placed at" << " t[" << pos;
       cout <<"][" << index << "]" << " replacing <" << t[pos][index] << ">";
       cout << endl;
-      // YOU NEED TO WRITE THE CODE TO STORE IN temp THE STRING STORED AT
+      // STORE IN temp THE STRING STORED AT
       // t[pos][index] AND STORE IN t[pos][index] THE STRING temp_s
-      temp = t[pos][index];
-	    t[pos][index] = temp_s;
-      // NOW temp_s CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
+	temp = t[pos][index];
+	t[pos][index] = temp_s;
+      // NOW temp CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
       // IN THE OTHER TABLE
-      // WRITE THE CODE TO SET index TO INDICATE THE OTHER TABLE
-       //change tables
-	    if(index == 0)
-		    {
-		    index = 1;
-		    }
-	    else
-		    {
-		    index = 0;
-		    }
-      // WRITE THE CODE TO CALCULATE IN pos THE HASH VALUE FOR temp_s
-      pos = f(temp_s, index);
+
+      // SET index TO INDICATE THE OTHER TABLE
+	//change tables
+	if(index == 0)
+		{
+		index = 1;
+		}
+	else
+		{
+		index = 0;
+		}
+      // CALCULATE IN pos THE HASH VALUE FOR temp
+	pos = f(temp, index);
+	temp_s = temp;//temp_s needs to be updated so that the if statement will look at the correct string
       counter ++;
-    }
-  }
+    }//else
+  }//while
   return placed;
 };
 
 
 // oompute the hash functions
-// TO DO: complete the ELSE brach
 size_t f(string s, size_t index) {
   size_t po, len;
   int i, val, temp;
@@ -163,7 +164,7 @@ size_t f(string s, size_t index) {
     return val;
 }
   else {//else
-    // TO DO: YOU NEED TO IMPLEMENT THE STEPS TO CALCULATE THE SECOND 
+    // CALCULATE THE SECOND 
     // HASH FUNCTION in <val>
 	val = s[1];
 	val = val % tablesize;
