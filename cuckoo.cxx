@@ -105,7 +105,7 @@ bool place_in_hash_tables (string s) {
       cout << "String <" << replacer << "> will be placed at" << " t[" << pos;
       cout <<"][" << index << "]" << " replacing <" << t[pos][index] << ">";
       cout << endl;
-      // YOU NEED TO WRITE THE CODE TO STORE IN evicted THE STRING STORED AT
+      // STORE IN evicted THE STRING STORED AT
       // t[pos][index] AND STORE IN t[pos][index] THE STRING replacer
 	evicted = t[pos][index];
 	t[pos][index] = replacer;
@@ -123,9 +123,7 @@ bool place_in_hash_tables (string s) {
 		{
 		index = 0;
 		}
-	//cout << "index = " << index << endl;
       //CALCULATE IN pos THE HASH VALUE FOR evicted
-	//pos = f(replacer, index);
 	pos = f(evicted, index);
 	replacer = evicted;//replacer needs to be updated so that the if statement will look at the correct string
       counter ++;
@@ -136,12 +134,10 @@ bool place_in_hash_tables (string s) {
 
 
 // oompute the hash functions
-// TO DO: complete the ELSE brach
 size_t f(string s, size_t index) {
   size_t po, len;
   int i, val, evicted;
   po = 1;
-	//cout << "index recieved as " << index << endl;
 
   len = s.size();
 
@@ -171,8 +167,7 @@ size_t f(string s, size_t index) {
   else {//else
     // CALCULATE THE SECOND 
     // HASH FUNCTION in <val>
-	//val = s[0];
-	val = s[len - 1];
+	val = s[len - 1];//s[8]*39^0 for len 9
 	val = val % tablesize;
 	if (val < 0) val += tablesize;
 	
