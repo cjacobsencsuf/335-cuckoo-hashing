@@ -114,7 +114,6 @@ bool place_in_hash_tables (string s) {
 
       // SET index TO INDICATE THE OTHER TABLE
 	//change tables
-	//cout << "index = " << index << endl;
 	if(index == 0)
 		{
 		index = 1;
@@ -123,8 +122,8 @@ bool place_in_hash_tables (string s) {
 		{
 		index = 0;
 		}
-      //CALCULATE IN pos THE HASH VALUE FOR evicted
-	pos = f(evicted, index);
+      //CALCULATE IN pos THE HASH VALUE FOR replacer NOT evicted, evicted results in the wrong values when sent to f
+	pos = f(replacer, index);
 	replacer = evicted;//replacer needs to be updated so that the if statement will look at the correct string
       counter ++;
     }//else
