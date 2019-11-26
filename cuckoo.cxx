@@ -122,8 +122,8 @@ bool place_in_hash_tables (string s) {
 		{
 		index = 0;
 		}
-      //CALCULATE IN pos THE HASH VALUE FOR replacer NOT evicted, evicted results in the wrong values when sent to f
-	pos = f(replacer, index);
+      //CALCULATE IN pos THE HASH VALUE FOR evicted
+	pos = f(evicted, index);
 	replacer = evicted;//replacer needs to be updated so that the if statement will look at the correct string
       counter ++;
     }//else
